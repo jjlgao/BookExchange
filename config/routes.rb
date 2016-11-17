@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'sellers/new'
+  get 'sellers/new', to: 'registration#register'
 
   get 'sellers/create'
 
