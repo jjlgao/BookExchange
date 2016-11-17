@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'sellers/new'
+
+  get 'sellers/create'
+
+  get 'login/login'
+  get 'registration/register', to: 'registration#register'
+  post 'registration/create', to: 'registration#new_seller'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,6 +15,15 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   
   root 'home#index'
+  
+  get 'login', to: 'login#login'
+  post 'submit_user', to: 'login#create'
+  
+  resources :book
+  resources :buyer
+  resources :course
+  resources :seller
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,2 @@
+class BuyerControllerController < ApplicationController
+end
