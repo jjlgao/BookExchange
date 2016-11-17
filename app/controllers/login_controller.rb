@@ -4,8 +4,14 @@ class LoginController < ApplicationController
   end
   
   def create
-    puts params
-    session[:email] = params[:email]
+    @user = Seller.find_by_name(params[:email])
+
+    if (@user.nil? or @user.password != params[:password])
+      return redirect_to '/', notice: "Invalid email or password"
+    else
+      session[:user_id] = @user.id
+    end
+    
     redirect_to '/'
   end
 end
