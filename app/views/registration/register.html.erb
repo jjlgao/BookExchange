@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../../assets/stylesheets/registration.scss" />
+		<title>Seller Registration</title>
+		<style>
+			body {
+				color: white;
+				position: relative;
+				margin: center;
+				text-align: center;
+				background-color: black;
+				font-family: Cambria;
+			}
+
+			.form_container {
+				height: 200px;
+				width: 500px;
+				border: 2px solid white;
+				margin: auto;
+				padding-top: 50px;
+
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div style="height:100px; bottom-margin:"></div>
+		<h1 style="font-size: 42px">Seller Registration</h1>
+		<div class="form_container">
+			<%= form_tag registration_create_path do %>
+	  			<%= label_tag(:name, "Name: ") %>
+	 	 		<%= text_field_tag(:name) %>
+			<% end %>
+			<div style="height:20px; bottom-margin:"></div>
+
+			<%= form_tag registration_create_path do %>
+	 	 		<%= label_tag(:email, "Email: ") %>
+	 	 		<%= text_field_tag(:email) %>
+			<% end %>
+			<div style="height:20px; bottom-margin:"></div>
+
+
+			<%= form_tag registration_create_path do %>
+	 	 		<%= label_tag(:password, "Password: ") %>
+	 	 		<%= text_field_tag(:password) %>
+			<% end %>
+			<div style="height:20px; bottom-margin:"></div>
+
+
+			<%= form_tag registration_create_path do %>
+	 	 		<%= submit_tag("Create Seller") %>
+			<% end %>
+		</div>
+	</body>
+</html>
