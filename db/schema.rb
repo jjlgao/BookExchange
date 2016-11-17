@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20161110014002) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seller_id"
   end
 
   create_table "buyers", force: :cascade do |t|
