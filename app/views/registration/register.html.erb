@@ -30,12 +30,14 @@
 		<div class="form_container">
 			<%= form_tag registration_create_path do %>
 	  			<%= label_tag(:name, "Name: ") %>
+	  			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	 	 		<%= text_field_tag(:name) %>
 			<% end %>
 			<div style="height:20px; bottom-margin:"></div>
 
 			<%= form_tag registration_create_path do %>
 	 	 		<%= label_tag(:email, "Email: ") %>
+	 	 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	 	 		<%= text_field_tag(:email) %>
 			<% end %>
 			<div style="height:20px; bottom-margin:"></div>
@@ -43,10 +45,10 @@
 
 			<%= form_tag registration_create_path do %>
 	 	 		<%= label_tag(:password, "Password: ") %>
+	 	 		&nbsp;
 	 	 		<%= text_field_tag(:password) %>
 			<% end %>
 			<div style="height:20px; bottom-margin:"></div>
-
 
 			<%= form_tag registration_create_path do %>
 	 	 		<%= submit_tag("Create Seller") %>
