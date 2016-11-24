@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Book.create(name: 'Biology', price: 150.00, image: "https://www.mheonline.com/assets/images/cover/large/0078945860.jpg", seller_id: 5)
+Book.create(name: 'Calculus', price: 249.99, image: "https://images-na.ssl-images-amazon.com/images/I/51-G-148jJL._SX258_BO1,204,203,200_.jpg", seller_id: 6)
+
+Seller.create(name: "Barack Obama", email: "obama@us.com")
+Seller.create(name: "Joe Biden", email: "biden@us.com")

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
     def index
         @seller = Seller.all
+        @all_books = Book.all
         render "home" 
     end
     
