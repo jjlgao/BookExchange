@@ -5,7 +5,7 @@ class RegistrationController < ApplicationController
   def new_seller
   	@seller = Seller.new
   	@seller.name = params[:name]
-
+  	@seller.email = params[:email]
   	@seller.save!
   	
   	redirect_to login_path
