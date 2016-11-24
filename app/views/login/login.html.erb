@@ -1,24 +1,66 @@
-<title>Login</title>
-    <div class="container">
-        <div class = "text-center">
-            <h1>Log In!</h1>
-            
-            <%= form_tag submit_user_path, class: "form-horizontal" do %>
-                
-                <div class="field form-group">
-                    <%= label_tag :email %> <br>
-                    <%= text_field_tag :email %>
-                </div>
-                
-                <div class="field form-group">
-                    <%= label_tag :password %> <br>
-                    <%= password_field_tag :password %>
-                </div>
-                
-                <div class="actions">
-                    <%= submit_tag "Log In", class: "btn btn-primary" %>
-                    <a href='sellers/new' class="btn btn-default">Sign up</a>
-                </div>
-            <% end %>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../assets/stylesheets/registration.scss" />
+        <title>Login</title>
+        <style>
+            body {
+                color: white;
+                position: relative;
+                margin: center;
+                text-align: center;
+                background-color: black;
+                font-family: Cambria;
+            }
+            .form_container {
+                height: 400px;
+                width: 500px;
+                border: 2px solid white;
+                margin: auto;
+                padding-top: 50px;
+                font-size: 20px;
+                /*background-color: rgb(145,0,0);*/
+                /*color: black;*/
+            }
+            .field {
+                margin: 20px 0 0 0;
+            }
+            #home_button {
+                font-size: 20px; 
+                border: none;
+                padding: 10px 30px 10px 30px;
+                background-color: gray;
+                border-radius: 5px;
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="height:100px; text-align:center"><a id="home_button" href="/">Go to Home page</a></div>
+        <div class="form_container">
+            <h1 style="font-size: 42px">Login</h1>    
+                <%= form_tag submit_user_path do %>
+                    
+                    <div class="field">
+                        <%= label_tag :email %> <br>
+                        <%= text_field_tag :email %>
+                    </div>
+                    
+                    <div class="field">
+                        <%= label_tag :password %> <br>
+                        <%= password_field_tag :password %>
+                    </div>
+                    
+                    <div class="field">
+                        <%= submit_tag "Log In", class: "btn btn-primary" %>
+                    </div>
+
+                    <div class="field">
+                        <a href='sellers/new' class="field">New Seller?</a>
+                    </div>
+
+                <% end %>
+            </div>
         </div>
-    </div>
+    </body>
+</html>

@@ -13,45 +13,51 @@
 			}
 
 			.form_container {
-				height: 200px;
+				height: 420px;
 				width: 500px;
 				border: 2px solid white;
 				margin: auto;
-				padding-top: 50px;
-
+				padding-top: 30px;
+                font-size: 20px;
 			}
-
+			.field {
+                margin: 20px 0 0 0;
+            }
+            #home_button {
+                font-size: 20px; 
+                border: none;
+                padding: 10px 30px 10px 30px;
+                background-color: gray;
+                border-radius: 5px;
+                text-decoration: none;
+                color: white;
+            }
 		</style>
 
 	</head>
 	<body>
-		<div style="height:100px; bottom-margin:"></div>
-		<h1 style="font-size: 42px">Seller Registration</h1>
+        <div style="height:100px; text-align:center"><a id="home_button" href="/">Go to Home page</a></div>
 		<div class="form_container">
+		<h1 style="font-size: 42px">New Seller</h1>
 			<%= form_tag registration_create_path do %>
-	  			<%= label_tag(:name, "Name: ") %>
-	  			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 	 		<%= text_field_tag(:name) %>
-			<% end %>
-			<div style="height:20px; bottom-margin:"></div>
+	  			<div class="field">
+	  				<%= label_tag(:name, "Name") %> <br>
+	 	 			<%= text_field_tag(:name) %>
+				</div>
 
-			<%= form_tag registration_create_path do %>
-	 	 		<%= label_tag(:email, "Email: ") %>
-	 	 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 	 		<%= text_field_tag(:email) %>
-			<% end %>
-			<div style="height:20px; bottom-margin:"></div>
+	  			<div class="field">
+	 	 			<%= label_tag(:email, "Email") %> <br>
+	 	 			<%= text_field_tag(:email) %>
+				</div>
 
+	  			<div class="field"> 
+	 		 		<%= label_tag(:password, "Password") %> <br>
+		 	 		<%= text_field_tag(:password) %>
+				</div>
 
-			<%= form_tag registration_create_path do %>
-	 	 		<%= label_tag(:password, "Password: ") %>
-	 	 		&nbsp;
-	 	 		<%= text_field_tag(:password) %>
-			<% end %>
-			<div style="height:20px; bottom-margin:"></div>
-
-			<%= form_tag registration_create_path do %>
-	 	 		<%= submit_tag("Create Seller") %>
+	  			<div class="field" style="margin-top:30px">
+		 	 		<%= submit_tag("Create Seller") %>
+				</div>
 			<% end %>
 		</div>
 	</body>
