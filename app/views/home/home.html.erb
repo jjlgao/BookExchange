@@ -28,10 +28,11 @@
       html, body {
         margin:0; 
         padding:0;
+        color: white;
       }
 
       html { 
-        background-color: #b7a394;
+        background-color: black;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -42,7 +43,7 @@
         font-size: 80px;
         color: #f2f2f2;
         text-align: center;
-        /*margin-top: 20px;*/
+        margin-top: 20px;
         font-family: 'Noto Sans', sans-serif;
         clear: both;
       }
@@ -51,6 +52,7 @@
         color: #f2f2f2;
         text-align: center;
         margin-top: 10px;
+        margin-bottom: 50px;
         width: 40%;
         font-family: 'Raleway', sans-serif;
         margin-left: auto;
@@ -95,7 +97,6 @@
         position:relative;
         top:1px;
       }
-
 
       #clear-button {
         margin: 0 auto;
@@ -162,11 +163,55 @@
         text-align: center;
         border: 1px solid black;
       }
+      #sell_button {
+        font-size: 20px; 
+        border: none;
+        padding: 10px 30px 10px 30px;
+        background-color: #0080ff;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+      }
+      .book-container {
+        width: 60%;
+        height: 200px;
+        margin: auto;
+        margin-top: 50px; 
+        border: 1px solid white;
+        background-color: rgb(200,200,200);
+        vertical-align: center;
+      }
+      .book-container-img {
+        float: left;
+        width: 15%;
+        height: 80%;
+        margin: 20px 0 0 40px;
+      }
+      .book_info_container {
+        float: right;
+        width: 55%;
+        height: 80%;
+        margin: 30px 40px 0 20px; 
+        /*border: 1px solid black;*/
+        text-align: right;
+        color: black;
+        font-family: 
+      }
+      .book_name {
+        font-size: 32px;
+        color: rgb(188,0,0);
+        font-weight: bold;
+      }
+      .book_info {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+
     </style>
   </head>
   <body> 
     <div style="width:70%; text-align:right; margin:auto; padding:30px 30px 0 0">
-      <a href="login" style="font-size: 20px;">Sign In</a>
+      <a href="login" id="sell_button">Sell your book!</a>
     </div>
 
     <div id="title">
@@ -175,7 +220,7 @@
     <div id="sub-title">
       Buy or Sell your textbooks to other students!
     </div>
-    <table>
+    <!-- <table>
       <tr>
         <th>Book Name</th>
         <th>Class</th> 
@@ -332,7 +377,18 @@
         <td>Adam S.</td>
         <td>$50</td>
       </tr>
-    </table>
+    </table> -->
+
+    <div class="book-container">
+      <img class="book-container-img" src="https://images-na.ssl-images-amazon.com/images/I/51-G-148jJL._SX258_BO1,204,203,200_.jpg" />
+      <div class="book_info_container">
+        <div class="book_name">Calculus</div>
+        <div class="book_info"><b>Seller:</b> Barack Obama</div>
+        <div class="book_info"><b>Email:</b> obama@calculus.com</div>
+        <div class="book_info"><b>Price:</b> $100</div>
+      </div>
+    </div>
+
   </body>
 </html>
 
