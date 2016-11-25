@@ -1,17 +1,21 @@
 class LoginController < ApplicationController
   def login
-    puts params
+    @id = Rails.application.config.current_seller_id
+    if @id.nil? 
+      @invalid = params[:inv]
+    else
+      redirect_to sellers_account_path(curr_sell_id: @id)
+    end
   end
   
   def create
-    @user = Seller.find_by_name(params[:email])
+    @user = Seller.find_by_email(params[:email])
 
     if (@user.nil? or @user.password != params[:password])
-      return redirect_to '/', notice: "Invalid email or password"
+      redirect_to login_login_path(inv: true)
     else
-      session[:user_id] = @user.id
+      Rails.application.config.current_seller_id = @user.id
+      redirect_to '/'
     end
-    
-    redirect_to '/'
   end
 end

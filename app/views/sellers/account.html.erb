@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <style>
+      html, body {
+        margin:0; 
+        padding:0;
+        color: white;
+      }
+
+      html { 
+        background-color: black;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+
+      #title {
+        font-size: 80px;
+        color: #f2f2f2;
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Noto Sans', sans-serif;
+        clear: both;
+      }
+      #sub-title {
+        font-size: 25px;
+        color: #f2f2f2;
+        text-align: center;
+        margin-top: 70px;
+        margin-bottom: 30px;
+        width: 40%;
+        font-family: 'Raleway', sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+     .form_container {
+        height: 400px;
+        width: 65%;
+        /*border: 2px solid white;*/
+        margin: auto;
+        margin-top: 80px; 
+        padding-top: 50px;
+        font-size: 20px;
+        /*background-color: rgb(145,0,0);*/
+        /*color: black;*/
+      }
+      .field {
+        margin: 20px 0 0 0;
+      }
+      #sell_button {
+        font-size: 20px; 
+        border: none;
+        padding: 10px 30px 10px 30px;
+        background-color: #0080ff;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+      }
+      .book-container {
+        width: 65%;
+        height: 200px;
+        margin: auto;
+        margin-top: 50px; 
+        border: 1px solid white;
+        background-color: rgb(200,200,200);
+        vertical-align: center;
+        /*border-radius: 3px;*/
+      }
+      .book-container-img {
+        float: left;
+        width: 15%;
+        height: 80%;
+        margin: 20px 0 0 40px;
+      }
+      .book_info_container {
+        float: right;
+        width: 55%;
+        height: 80%;
+        margin: 30px 40px 0 20px; 
+        /*border: 1px solid black;*/
+        font-family: 'Raleway', sans-serif;
+        text-align: right;
+        color: black;
+        font-family: 
+      }
+      .book_name {
+        font-size: 32px;
+        color: rgb(188,0,0);
+        font-weight: bold;
+        font-family: 'Noto Sans', sans-serif;
+      }
+      .book_info {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+      .footer {
+        height: 200px;
+        margin: 50px 0 0 0;
+      }
+      .seller_name {
+        color: gray;
+        margin-right: 20px;
+        font-size: 28px;
+      }
+      .account_buttons {
+        color: white;
+        margin-right: 15px; 
+      }
+      .book_remove_button {
+      	color: gray;
+      	display: inline-block;
+      	margin-top: 50px;
+      	text-decoration: none;
+      }
+
+    </style>
+  </head>
+  <body> 
+    <div style="width:70%; text-align:right; margin:auto; padding:30px 30px 0 0">
+      <% if not @seller_id.nil? %>
+        <span class="seller_name">Hi, <%= @seller_name %></span>
+      	<%= link_to 'Home', '/', class: "account_buttons" %>
+        <%= link_to 'Account', sellers_account_path(curr_sell_id: @seller_id), class: "account_buttons" %>
+        <%= link_to 'Log out', sellers_logout_path, class: "account_buttons" %>
+      <% end %>
+    </div>
+
+    <div id="sub-title">
+      Your posted books
+    </div>
+
+    <% @seller_books.each do |b| %>
+      <div class="book-container">
+        <img class="book-container-img" src=<%= b.image %> />
+        <div class="book_info_container">
+          <div class="book_name"><%=b.name %></div>
+          <div class="book_info"><b>Price:</b> <%= b.price %></div>
+          <%= link_to '&#10008; Remove'.html_safe, sellers_delete_book_path(deleted_book: b.id), class: "book_remove_button" %>
+
+        </div>
+      </div>
+    <% end %>
+
+	<div class="form_container">
+		<h1 style="font-size: 42px">Add a book</h1>
+		<%= form_tag sellers_add_book_path do %>
+  			<div class="field">
+  				<%= label_tag(:name, "Name*") %> <br>
+ 	 			<%= text_field_tag(:name, nil, size: 75) %>
+			</div>
+
+  			<div class="field">
+ 	 			<%= label_tag(:price, "Price*") %> <br>
+ 	 			<%= text_field_tag(:price, nil, size: 75) %>
+			</div>
+
+  			<div class="field"> 
+ 		 		<%= label_tag(:image, "Image Link*") %> <br>
+	 	 		<%= text_field_tag(:image, nil, size: 75) %>
+			</div>
+
+  			<div class="field" style="margin-top:30px">
+	 	 		<%= submit_tag("Post") %>
+			</div>
+		<% end %>
+		<% if @invalid %>
+        	<div class="field" style="color: Red">All fields are required!</div>
+        	<% @invalid = false %>
+    	<% end %>
+	</div>
+	
+
+
+    <div class="footer">
+    </div>
+  
+  </body>
+</html>

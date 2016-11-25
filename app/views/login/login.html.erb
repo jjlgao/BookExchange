@@ -39,27 +39,30 @@
         <div style="height:100px; text-align:center"><a id="home_button" href="/">Go to Home page</a></div>
         <div class="form_container">
             <h1 style="font-size: 42px">Login</h1>    
-                <%= form_tag submit_user_path do %>
-                    
-                    <div class="field">
-                        <%= label_tag :email %> <br>
-                        <%= text_field_tag :email %>
-                    </div>
-                    
-                    <div class="field">
-                        <%= label_tag :password %> <br>
-                        <%= password_field_tag :password %>
-                    </div>
-                    
-                    <div class="field">
-                        <%= submit_tag "Log In", class: "btn btn-primary" %>
-                    </div>
+            <%= form_tag submit_user_path do %>
+                
+                <div class="field">
+                    <%= label_tag :email %> <br>
+                    <%= text_field_tag :email %>
+                </div>
+                
+                <div class="field">
+                    <%= label_tag :password %> <br>
+                    <%= password_field_tag :password %>
+                </div>
+                
+                <div class="field">
+                    <%= submit_tag "Log In", class: "btn btn-primary" %>
+                </div>
 
-                    <div class="field">
-                        <a href='sellers/new' class="field">New Seller?</a>
-                    </div>
-
-                <% end %>
+                <div class="field">
+                    <a href='sellers/new' class="field">New Seller?</a>
+                </div>
+            <% end %>
+            <% if @invalid %>
+                <div class="field" style="color: Red">Invalid email/password!</div>
+                <% @invalid = false %>
+            <% end %>
             </div>
         </div>
     </body>

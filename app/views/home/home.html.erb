@@ -213,11 +213,27 @@
         height: 200px;
         margin: 50px 0 0 0;
       }
+      .seller_name {
+        color: gray;
+        margin-right: 20px;
+        font-size: 28px;
+      }
+      .account_buttons {
+        color: white;
+        margin-right: 15px; 
+      }
 
     </style>
   </head>
   <body> 
     <div style="width:70%; text-align:right; margin:auto; padding:30px 30px 0 0">
+      <% if not @current_seller_id.nil? %>
+        <span class="seller_name">Hi, <%= @current_seller_name %></span>
+        <%= link_to 'Account', sellers_account_path(curr_sell_id: @current_seller_id), class: "account_buttons" %>
+        <%= link_to 'Log Out', sellers_logout_path, class: "account_buttons" %>
+      <% else %>
+        <%= link_to 'Log In', login_path, class: "account_buttons" %>
+      <% end %>
       <a href="login" id="sell_button">Sell your book!</a>
     </div>
 

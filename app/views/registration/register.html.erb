@@ -38,7 +38,7 @@
 	<body>
         <div style="height:100px; text-align:center"><a id="home_button" href="/">Go to Home page</a></div>
 		<div class="form_container">
-		<h1 style="font-size: 42px">New Seller</h1>
+			<h1 style="font-size: 42px">New Seller</h1>
 			<%= form_tag registration_create_path do %>
 	  			<div class="field">
 	  				<%= label_tag(:name, "Name") %> <br>
@@ -52,13 +52,17 @@
 
 	  			<div class="field"> 
 	 		 		<%= label_tag(:password, "Password") %> <br>
-		 	 		<%= text_field_tag(:password) %>
+		 	 		<%= password_field_tag(:password) %>
 				</div>
 
 	  			<div class="field" style="margin-top:30px">
 		 	 		<%= submit_tag("Create Seller") %>
 				</div>
 			<% end %>
+			<% if @invalid %>
+				<div class="field" style="color: Red">Invalid input!</div>
+			<% end %>	
+
 		</div>
 	</body>
 </html>

@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   
   get 'login', to: 'login#login'
   post 'submit_user', to: 'login#create'
+
+  get 'sellers/account', to: 'sellers#account'
+  get 'sellers/logout', to: 'sellers#logout'
+  get 'sellers/delete_book', to: 'sellers#delete_book'
+
+  post 'sellers/add_book', to: 'sellers#add_book'
   
   resources :book
   resources :buyer
