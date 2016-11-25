@@ -144,7 +144,7 @@
 	        <img class="book-container-img" src=<%= b.image %> />
 	        <div class="book_info_container">
 	          <div class="book_name"><%=b.name %></div>
-	          <div class="book_info"><b>Price:</b> <%= b.price %></div>
+	          <div class="book_info"><b>Price:</b> $<%= b.price %></div>
 	          <%= link_to '&#10008; Remove'.html_safe, sellers_delete_book_path(deleted_book: b.id), class: "book_remove_button" %>
 
 	        </div>
